@@ -1,0 +1,31 @@
+<% @clubs.each do |club| %>
+  <div class='club row'>
+    <h4 class='col-lg-2'><%= club.name %> <small><%= club.category %></small></h4>
+    <p class='col-lg-9'>
+      <%= Faker::Lorem.paragraph %>
+    </p>
+    <div class=' col-lg-1 actions'>
+      <%= button_to "Choose", player_club_create_path(club.id), class: "choose btn btn-success"  %>
+    </div>
+  </div>
+<% end %>
+<h3>New Club</h3>
+<div class='well'>
+  <%= form_for Club.new do |f| %>
+    <div class='form-group'>
+      <%= f.label :name do %>
+        Name:
+        <%= f.text_field :name %>
+      <% end %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :category do %>
+        Category:
+        <%= f.text_field :category %>
+      <% end %>
+    </div>
+
+    <%= f.submit "Create", class: "btn" %>
+  <% end %>
+</div>
