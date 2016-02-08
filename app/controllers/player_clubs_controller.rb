@@ -4,7 +4,9 @@ class PlayerClubsController < ApplicationController
     # PlayerClub.create(club_id: @club.id, player_id: current_user.id)
     # That line ^ does the same as:
     current_user.clubs << @club
-    redirect_to player_club_path
+    # redirect_to player_club_path
+
+    render json: [], status: 200
   end
 
   def index
